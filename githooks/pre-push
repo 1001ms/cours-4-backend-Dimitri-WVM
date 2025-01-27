@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Exécution des tests PHPUnit avant push..."
+php ./bin/phpunit
+
+if [ $? -ne 0 ]; then
+    echo "Tests échoués. Annulation du push."
+    exit 1
+fi
+
+echo "Tous les tests ont réussi. Push autorisé."
