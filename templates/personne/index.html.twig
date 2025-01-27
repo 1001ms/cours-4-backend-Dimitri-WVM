@@ -1,0 +1,29 @@
+{% block title %}Liste des personnes{% endblock %}
+
+{% block body %}
+<h1>Liste des personnes</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Voiture</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for personne in personnes %}
+        <tr>
+            <td>{{ personne.nom }}</td>
+            <td>{{ personne.prenom }}</td>
+            <td>
+                {% if personne.car %}
+                    {{ personne.car.modele }}
+                {% else %}
+                    Aucune voiture
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
